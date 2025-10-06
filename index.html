@@ -563,209 +563,421 @@
         }
 
         @media (max-width: 768px) {
-            .hero-title { font-size: 3.5em; }
-            .photo-grid { grid-template-columns: 1fr; }
-            .letter-container { padding: 40px 30px; }
-            .cute-animal { font-size: 80px; }
+            .hero-title { 
+                font-size: 3em; 
+            }
+            
+            .hero-subtitle {
+                font-size: 1.8em;
+            }
+            
+            .love-message {
+                font-size: 1.2em;
+            }
+            
+            .cute-animal { 
+                font-size: 70px; 
+            }
+            
+            .start-button {
+                padding: 20px 50px;
+                font-size: 1.1em;
+            }
+            
+            .photo-grid { 
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .gallery-title {
+                font-size: 3em;
+            }
+            
+            .gallery-subtitle {
+                font-size: 1.2em;
+            }
+            
+            .love-quote {
+                font-size: 1.3em;
+                padding: 0 15px;
+            }
+            
+            .cute-animals {
+                font-size: 60px;
+            }
+            
+            .letter-container { 
+                padding: 30px 20px; 
+            }
+            
+            .letter-to {
+                font-size: 2.5em;
+            }
+            
+            .letter-subtitle {
+                font-size: 1em;
+            }
+            
+            .letter-content {
+                font-size: 1.1em;
+                line-height: 1.8;
+                text-align: left;
+            }
+            
+            .letter-content p {
+                text-indent: 0;
+                margin-bottom: 20px;
+            }
+            
+            .letter-signature {
+                font-size: 2em;
+            }
+            
+            .love-birds {
+                font-size: 70px;
+            }
+            
+            .final-hearts {
+                font-size: 2em;
+            }
+            
+            .nav-dots { 
+                right: 15px;
+                transform: translateY(-50%) scale(0.8);
+            }
+            
+            .interactive-bears {
+                font-size: 60px;
+                bottom: 20px;
+            }
+            
+            .funny-counter {
+                font-size: 1.2em;
+            }
+            
+            .click-me {
+                padding: 12px 30px;
+                font-size: 1em;
+            }
+            
+            .love-meter {
+                width: 250px;
+                height: 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title { 
+                font-size: 2.5em; 
+            }
+            
+            .hero-subtitle {
+                font-size: 1.5em;
+                letter-spacing: 2px;
+            }
+            
+            .cute-animal {
+                font-size: 60px;
+            }
+            
+            .start-button {
+                padding: 18px 40px;
+                font-size: 1em;
+            }
+            
+            .gallery-title {
+                font-size: 2.5em;
+            }
+            
+            .photo-label {
+                font-size: 1.1em;
+            }
+            
+            .letter-container {
+                padding: 25px 15px;
+            }
+            
+            .letter-to {
+                font-size: 2em;
+            }
+            
+            .letter-content {
+                font-size: 1em;
+            }
+            
+            .interactive-bears {
+                font-size: 50px;
+            }
         }
     </style>
 </head>
 <body>
-<div class="nav-dots">
-    <div class="nav-dot active" onclick="goToSection(0)" title="Inicio"></div>
-    <div class="nav-dot" onclick="goToSection(1)" title="Nuestros Momentos"></div>
-    <div class="nav-dot" onclick="goToSection(2)" title="Mi Carta Para Ti"></div>
-</div>
-
-<section id="vista1" class="section active">
-    <div class="hearts-bg" id="heartsContainer"></div>
-    <div class="hero-content">
-        <div class="cute-animal">🐻‍❄️💕🐱</div>
-        <h1 class="hero-title">Ana, Mi Amor</h1>
-        <p class="hero-subtitle">FELIZ CUMPLEAÑOS !!!</p>
-        <p class="love-message">
-            <span class="sparkle">✨</span> Mi shiquita patas de vinagre <span class="sparkle">✨</span>
-        </p>
-        <button class="start-button" onclick="goToSection(1)">VER MI REGALO 💝</button>
+    <!-- NAVEGACIÓN -->
+    <div class="nav-dots">
+        <div class="nav-dot active" onclick="goToSection(0)" title="Inicio"></div>
+        <div class="nav-dot" onclick="goToSection(1)" title="Nuestros Momentos"></div>
+        <div class="nav-dot" onclick="goToSection(2)" title="Mi Carta Para Ti"></div>
     </div>
-</section>
 
-<section id="vista2" class="section hidden">
-    <div class="gallery-container">
-        <div class="gallery-header">
-            <h2 class="gallery-title">Eres una Muñequita Hermosa</h2>
-            <p class="gallery-subtitle">Cosita Preciosa 💖</p>
+    <!-- VISTA 1: PORTADA ROMÁNTICA -->
+    <section id="vista1" class="section active">
+        <div class="hearts-bg" id="heartsContainer"></div>
+        <div class="hero-content">
+            <div class="cute-animal">🐻‍❄️💕🐱</div>
+            <h1 class="hero-title">Ana, Mi Amor</h1>
+            <p class="hero-subtitle">FELIZ CUMPLEAÑOS</p>
+            <p class="love-message">
+                <span class="sparkle">✨</span> Eres el amor de mi vida <span class="sparkle">✨</span>
+            </p>
+            <button class="start-button" onclick="goToSection(1)">VER MI REGALO 💝</button>
         </div>
+    </section>
 
-        <div class="photo-grid">
-            <div class="photo-card">
-                <div class="photo-wrapper">
-                    <img src="ana.jpeg" alt="Mi amor Ana">
-                </div>
-                <p class="photo-label">Tu sonrisa ilumina mi vida entera ✨</p>
+    <!-- VISTA 2: GALERÍA -->
+    <section id="vista2" class="section hidden">
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <h2 class="gallery-title">Mis Momentos Favoritos Contigo</h2>
+                <p class="gallery-subtitle">Cada foto guarda un pedazo de mi corazón 💖</p>
             </div>
-            <div class="photo-card">
-                <div class="photo-wrapper">
-                    <img src="ana2.jpeg" alt="Mi princesa Ana">
+            
+            <div class="photo-grid">
+                <div class="photo-card">
+                    <div class="photo-wrapper">
+                        <img src="img/foto1.jpg" alt="Mi amor Ana">
+                    </div>
+                    <p class="photo-label">Tu sonrisa ilumina mi vida entera ✨</p>
                 </div>
-                <p class="photo-label">Eres la persona más hermosa del mundo 🌹</p>
-            </div>
-            <div class="photo-card">
-                <div class="photo-wrapper">
-                    <img src="ana3.jpeg" alt="Mi reina Ana">
+                <div class="photo-card">
+                    <div class="photo-wrapper">
+                        <img src="img/foto2.jpg" alt="Mi princesa Ana">
+                    </div>
+                    <p class="photo-label">Eres la persona más hermosa del mundo 🌹</p>
                 </div>
-                <p class="photo-label">Contigo todo es perfecto 💕</p>
+                <div class="photo-card">
+                    <div class="photo-wrapper">
+                        <img src="img/foto3.jpg" alt="Mi reina Ana">
+                    </div>
+                    <p class="photo-label">Contigo todo es perfecto 💕</p>
+                </div>
+            </div>
+
+            <div class="cute-animals">
+                <span>🐰</span>
+                <span>💗</span>
+                <span>🐼</span>
+            </div>
+
+            <div class="funny-counter">
+                <p>¿Cuánto amas a Ana?</p>
+                <button class="click-me" onclick="increaseLove()">¡Dale click! 💕</button>
+                <div class="love-meter">
+                    <div class="love-fill" id="loveFill"></div>
+                </div>
+                <p id="loveText">Amor: 0%</p>
+            </div>
+
+            <p class="love-quote">
+                "En un mundo lleno de personas, mis ojos siempre te buscarán a ti"
+            </p>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <button class="start-button" onclick="goToSection(2)">LEER MI CARTA 💌</button>
             </div>
         </div>
+    </section>
 
-        <div class="cute-animals">
-            <span>🐰</span>
-            <span>💗</span>
-            <span>🐼</span>
+    <!-- VISTA 3: CARTA DE AMOR -->
+    <section id="vista3" class="section hidden">
+        <div class="letter-wrapper">
+            <div class="love-birds">🕊️💕🕊️</div>
+            
+            <div class="letter-container">
+                <div class="letter-header">
+                    <h2 class="letter-to">Para Ti, Ana Mi Amor</h2>
+                    <p class="letter-subtitle">La persona que hace latir mi corazón 💓</p>
+                </div>
+
+                <div class="letter-content">
+                    <p>Mi amor, hoy es tu día especial y aunque siempre te fastidie diciéndote <span class="highlight">"mi enana con patas de vinagre"</span> o <span class="highlight">"te amo más aunque no te bañes"</span>, quiero que sepas que todo eso es porque eres la única persona con la que puedo ser yo mismo sin filtros.</p>
+
+                    <p>Eres hermosa hasta cuando te despiertas con cara de ogro shrek 😂, eres perfecta hasta cuando te enojas porque te quito las cobijas, y eres increíble hasta cuando cantas horrible en la ducha. <span class="highlight">Todo lo tuyo me enamora</span>, hasta tus locuras y tus momentos raros.</p>
+
+                    <p>Gracias por reírte de mis chistes malos, por aguantar mis fastidiadas, por ser mi cómplice en todo y por amarme tal como soy. <span class="highlight">Contigo hasta lo aburrido se vuelve divertido</span>, y eso vale más que mil palabras bonitas de poeta.</p>
+
+                    <p>Te amo con todo mi corazón mi amor, eres mi persona favorita en todo el universo. Feliz cumpleaños a la dueña de mi corazón, <span class="highlight">a mi enana hermosa</span>, a la que me roba las cobijas pero me roba el corazón más fuerte. 💕</p>
+                </div>
+
+                <div class="letter-signature">
+                    Con todo mi amor,<br>Tu novio que te adora 💖
+                </div>
+
+                <div class="final-hearts">
+                    💕 ✨ 💖 ✨ 💕 ✨ 💝 ✨ 💕
+                </div>
+            </div>
         </div>
+    </section>
 
-        <p class="love-quote">
-            "En un mundo lleno de personas, mis ojos siempre te buscarán a ti"
-        </p>
-
-        <div style="text-align: center; margin-top: 50px;">
-            <button class="start-button" onclick="goToSection(2)">LEER MI CARTA 💌</button>
-        </div>
+    <!-- OSITOS QUE SE BESAN -->
+    <div class="interactive-bears" onclick="createKiss()" title="¡Hazlos besar!">
+        <span class="bear-kissing">🐻</span><span class="bear-right">🐻</span>
     </div>
-</section>
 
-<section id="vista3" class="section hidden">
-    <div class="letter-wrapper">
-        <div class="love-birds">🕊️💕🕊️</div>
+    <script>
+        let currentSection = 0;
+        const sections = document.querySelectorAll('.section');
+        const dots = document.querySelectorAll('.nav-dot');
+        let loveLevel = 0;
 
-        <div class="letter-container">
-            <div class="letter-header">
-                <h2 class="letter-to">Para Ti, Mi Amor</h2>
-                <p class="letter-subtitle">La chica más especial del mundo 💓</p>
-            </div>
-
-            <div class="letter-content">
-                <p>Hoy quiero recordarte lo afortunado que me siento de tenerte en mi vida. Aunque la distancia nos separe, cada día me demuestras con tus palabras y tu forma de ser que eres lo mejor que me pudo pasar.</p>
-
-                <p>Me encanta cómo logras hacerme sonreír incluso en mis días pesados, cómo me entiendes y cómo siempre sabes darme calma. Eres increíblemente única y por eso te admiro tanto.</p>
-
-                <p>En este día especial quiero prometerte que siempre voy a estar para ti, apoyándote, escuchándote y compartiendo contigo todo lo que venga. Porque lo que siento por ti es real y cada día crece más, sin importar la distancia.</p>
-
-                <p>Gracias por ser parte de mi vida, por darme tu tiempo, tu cariño y tu confianza. Espero que este cumpleaños lo disfrutes muchísimo y que muy pronto podamos celebrar juntos de verdad.</p>
-
-                <p><span class="highlight">Te quiero más de lo que imaginé que podía querer a alguien.</span> Feliz cumpleaños, mi niña hermosa Te amo mucho aunque no te bañes  💕</p>
-            </div>
-
-            <div class="letter-signature">
-                Con todo mi cariño,<br>Tu marido UwU 💖
-            </div>
-
-            <div class="final-hearts">
-                💕 ✨ 💖 ✨ 💕 ✨ 💝 ✨ 💕
-            </div>
-        </div>
-    </div>
-    ```
-
-</section>
-
-<script>
-    let currentSection = 0;
-    const sections = document.querySelectorAll('.section');
-    const dots = document.querySelectorAll('.nav-dot');
-
-    function goToSection(index) {
-        sections[currentSection].classList.remove('active');
-        sections[currentSection].classList.add('hidden');
-        dots[currentSection].classList.remove('active');
-
-        currentSection = index;
-
-        sections[currentSection].classList.remove('hidden');
-        setTimeout(() => {
-            sections[currentSection].classList.add('active');
-        }, 50);
-        dots[currentSection].classList.add('active');
-
-        createLoveExplosion();
-    }
-
-    function createFloatingHearts() {
-        const container = document.getElementById('heartsContainer');
-        const hearts = ['💕', '💖', '💗', '💝', '💓', '💞', '❤️', '🩷'];
-
-        setInterval(() => {
-            const heart = document.createElement('div');
-            heart.className = 'floating-heart';
-            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
-            heart.style.left = Math.random() * 100 + '%';
-            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
-            container.appendChild(heart);
-
-            setTimeout(() => heart.remove(), 6000);
-        }, 300);
-    }
-
-    function createLoveExplosion() {
-        const animals = ['🐻', '🐱', '🐰', '🐼', '🦊', '🐨', '🦄', '🐶'];
-        const hearts = ['💕', '💖', '💗', '💝'];
-        const all = [...animals, ...hearts];
-
-        for (let i = 0; i < 20; i++) {
-            setTimeout(() => {
-                const elem = document.createElement('div');
-                elem.className = 'love-explosion';
-                elem.innerHTML = all[Math.floor(Math.random() * all.length)];
-                elem.style.left = Math.random() * 100 + 'vw';
-                elem.style.top = Math.random() * 100 + 'vh';
-                elem.style.fontSize = (Math.random() * 40 + 30) + 'px';
-                elem.style.position = 'fixed';
-                elem.style.animation = 'floatHeart 2s ease-out forwards';
-                document.body.appendChild(elem);
-
-                setTimeout(() => elem.remove(), 2000);
-            }, i * 50);
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        createFloatingHearts();
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-                if (currentSection < sections.length - 1) {
-                    goToSection(currentSection + 1);
+        function increaseLove() {
+            if (loveLevel < 100) {
+                loveLevel += 10;
+                document.getElementById('loveFill').style.width = loveLevel + '%';
+                document.getElementById('loveText').textContent = 'Amor: ' + loveLevel + '%';
+                
+                if (loveLevel === 100) {
+                    setTimeout(() => {
+                        alert('¡AMOR AL 100%! 💕 Eso es lo que siento por ti mi amor ✨');
+                        createMegaExplosion();
+                    }, 300);
                 }
-            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-                if (currentSection > 0) {
+            }
+        }
+
+        function createKiss() {
+            const bears = document.querySelector('.interactive-bears');
+            const rect = bears.getBoundingClientRect();
+            
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const kiss = document.createElement('div');
+                    kiss.className = 'kiss-effect';
+                    kiss.innerHTML = '💋';
+                    kiss.style.left = rect.left + rect.width / 2 + 'px';
+                    kiss.style.top = rect.top + 'px';
+                    kiss.style.transform = `translateX(${(Math.random() - 0.5) * 100}px)`;
+                    document.body.appendChild(kiss);
+                    
+                    setTimeout(() => kiss.remove(), 2000);
+                }, i * 100);
+            }
+            
+            const kisses = ['😘', '💕', '❤️', '😍'];
+            alert(kisses[Math.floor(Math.random() * kisses.length)] + ' ¡Muack! Te amo mi amor');
+        }
+
+        function createMegaExplosion() {
+            const emojis = ['🐻', '💕', '🐱', '💖', '🐰', '💗', '🐼', '💝', '🦊'];
+            for (let i = 0; i < 40; i++) {
+                setTimeout(() => {
+                    const elem = document.createElement('div');
+                    elem.className = 'love-explosion';
+                    elem.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                    elem.style.left = Math.random() * 100 + 'vw';
+                    elem.style.top = Math.random() * 100 + 'vh';
+                    elem.style.fontSize = (Math.random() * 50 + 40) + 'px';
+                    elem.style.position = 'fixed';
+                    elem.style.animation = 'floatHeart 3s ease-out forwards';
+                    document.body.appendChild(elem);
+                    
+                    setTimeout(() => elem.remove(), 3000);
+                }, i * 50);
+            }
+        }
+
+        function goToSection(index) {
+            sections[currentSection].classList.remove('active');
+            sections[currentSection].classList.add('hidden');
+            dots[currentSection].classList.remove('active');
+            
+            currentSection = index;
+            
+            sections[currentSection].classList.remove('hidden');
+            setTimeout(() => {
+                sections[currentSection].classList.add('active');
+            }, 50);
+            dots[currentSection].classList.add('active');
+            
+            createLoveExplosion();
+        }
+
+        function createFloatingHearts() {
+            const container = document.getElementById('heartsContainer');
+            const hearts = ['💕', '💖', '💗', '💝', '💓', '💞', '❤️', '🩷'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                container.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 6000);
+            }, 300);
+        }
+
+        function createLoveExplosion() {
+            const animals = ['🐻', '🐱', '🐰', '🐼', '🦊', '🐨', '🦄', '🐶'];
+            const hearts = ['💕', '💖', '💗', '💝'];
+            const all = [...animals, ...hearts];
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const elem = document.createElement('div');
+                    elem.className = 'love-explosion';
+                    elem.innerHTML = all[Math.floor(Math.random() * all.length)];
+                    elem.style.left = Math.random() * 100 + 'vw';
+                    elem.style.top = Math.random() * 100 + 'vh';
+                    elem.style.fontSize = (Math.random() * 40 + 30) + 'px';
+                    elem.style.position = 'fixed';
+                    elem.style.animation = 'floatHeart 2s ease-out forwards';
+                    document.body.appendChild(elem);
+                    
+                    setTimeout(() => elem.remove(), 2000);
+                }, i * 50);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createFloatingHearts();
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                    if (currentSection < sections.length - 1) {
+                        goToSection(currentSection + 1);
+                    }
+                } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                    if (currentSection > 0) {
+                        goToSection(currentSection - 1);
+                    }
+                }
+            });
+
+            document.querySelectorAll('.start-button').forEach(btn => {
+                btn.addEventListener('click', createLoveExplosion);
+            });
+        });
+
+        let touchStartY = 0;
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            const touchEndY = e.changedTouches[0].clientY;
+            const diff = touchStartY - touchEndY;
+            
+            if (Math.abs(diff) > 50) {
+                if (diff > 0 && currentSection < sections.length - 1) {
+                    goToSection(currentSection + 1);
+                } else if (diff < 0 && currentSection > 0) {
                     goToSection(currentSection - 1);
                 }
             }
         });
-
-        document.querySelectorAll('.start-button').forEach(btn => {
-            btn.addEventListener('click', createLoveExplosion);
-        });
-    });
-
-    let touchStartY = 0;
-    document.addEventListener('touchstart', (e) => {
-        touchStartY = e.touches[0].clientY;
-    });
-
-    document.addEventListener('touchend', (e) => {
-        const touchEndY = e.changedTouches[0].clientY;
-        const diff = touchStartY - touchEndY;
-
-        if (Math.abs(diff) > 50) {
-            if (diff > 0 && currentSection < sections.length - 1) {
-                goToSection(currentSection + 1);
-            } else if (diff < 0 && currentSection > 0) {
-                goToSection(currentSection - 1);
-            }
-        }
-    });
-</script>
+    </script>
 </body>
 </html>
