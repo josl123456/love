@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Amor Ana 💕</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section.hidden {
+            display: none;
+        }
+
+        /* VISTA 1 - PORTADA CON ANIMALES */
+        #vista1 {
+            background: radial-gradient(circle at 50% 50%, #4a3f5e 0%, #2d2438 30%, #1a1525 70%, #0d0d0f 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hearts-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 40px;
+            animation: floatHeart 6s infinite ease-in-out;
+            opacity: 0;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            padding: 40px;
+        }
+
+        .cute-animal {
+            font-size: 120px;
+            animation: bounce 2s infinite, rotate 4s infinite;
+            display: inline-block;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 119, 0.5));
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+
+        @keyframes rotate {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        .hero-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 6em;
+            margin: 30px 0;
+            background: linear-gradient(45deg, #f5e6d3, #d4af77, #c9a86a, #f5e6d3);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbowText 3s ease infinite;
+            text-shadow: 0 0 30px rgba(212, 175, 119, 0.3);
+        }
+
+        @keyframes rainbowText {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: 2.5em;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(212, 175, 119, 0.4);
+        }
+
+        .love-message {
+            font-size: 1.5em;
+            margin: 30px 0;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .sparkle {
+            display: inline-block;
+            animation: sparkle 1.5s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .start-button {
+            padding: 25px 70px;
+            font-size: 1.4em;
+            background: linear-gradient(45deg, #8b7355, #6b5d52);
+            border: 3px solid #d4af77;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            border-radius: 50px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            letter-spacing: 2px;
+            font-weight: 600;
+            position: relative;
+            box-shadow: 0 0 30px rgba(139, 115, 85, 0.4);
+        }
+
+        .start-button::before {
+            content: '💕';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 3em;
+            transition: 0.4s;
+        }
+
+        .start-button:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .start-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(139, 115, 85, 0.7);
+        }
+
+        /* VISTA 2 - GALERÍA ROMÁNTICA */
+        #vista2 {
+            background: linear-gradient(135deg, #1a1525 0%, #2d2438 50%, #1a1525 100%);
+            padding: 60px 20px;
+        }
+
+        .gallery-container {
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .gallery-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5em;
+            color: #d4af77;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(212, 175, 119, 0.4);
+        }
+
+        .gallery-subtitle {
+            font-size: 1.5em;
+            opacity: 0.8;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .photo-card {
+            position: relative;
+            background: rgba(255,255,255,0.05);
+            border-radius: 30px;
+            padding: 20px;
+            transition: all 0.5s ease;
+            border: 2px solid transparent;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-20px) scale(1.05);
+            border: 2px solid #d4af77;
+            box-shadow: 0 30px 80px rgba(139, 115, 85, 0.4);
+            background: rgba(212, 175, 119, 0.05);
+        }
+
+        .photo-wrapper {
+            position: relative;
+            aspect-ratio: 3/4;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .photo-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: photoShine 3s infinite;
+            z-index: 1;
+        }
+
+        @keyframes photoShine {
+            0% { transform: rotate(0deg) translate(-50%, -50%); }
+            100% { transform: rotate(360deg) translate(-50%, -50%); }
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .photo-card:hover .photo-wrapper img {
+            transform: scale(1.15);
+        }
+
+        .photo-label {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.3em;
+            color: #d4af77;
+            font-weight: 600;
+        }
+
+        .love-quote {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            margin: 40px 0;
+            font-style: italic;
+            color: #d4af77;
+            padding: 0 20px;
+        }
+
+        .cute-animals {
+            text-align: center;
+            font-size: 80px;
+            margin: 30px 0;
+        }
+
+        .cute-animals span {
+            display: inline-block;
+            animation: jump 1s infinite;
+            margin: 0 15px;
+        }
+
+        .cute-animals span:nth-child(1) { animation-delay: 0s; }
+        .cute-animals span:nth-child(2) { animation-delay: 0.2s; }
+        .cute-animals span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes jump {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        /* VISTA 3 - CARTA DE AMOR ÉPICA */
+        #vista3 {
+            background: radial-gradient(circle at 30% 70%, #4a3f5e 0%, #2d2438 20%, #1a1525 50%, #0d0d0f 100%);
+            padding: 60px 20px;
+        }
+
+        .letter-wrapper {
+            max-width: 900px;
+            position: relative;
+        }
+
+        .love-birds {
+            text-align: center;
+            font-size: 100px;
+            margin-bottom: 30px;
+            animation: kiss 2s infinite;
+        }
+
+        @keyframes kiss {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .letter-container {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(212, 175, 119, 0.3);
+            padding: 70px;
+            border-radius: 30px;
+            box-shadow: 0 40px 100px rgba(139, 115, 85, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .letter-container::before {
+            content: '💕';
+            position: absolute;
+            font-size: 400px;
+            opacity: 0.03;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        .letter-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .letter-to {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4em;
+            color: #d4af77;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(212, 175, 119, 0.4);
+        }
+
+        .letter-subtitle {
+            font-size: 1.3em;
+            opacity: 0.8;
+        }
+
+        .letter-content {
+            font-size: 1.4em;
+            line-height: 2.2;
+            text-align: justify;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .letter-content p {
+            margin-bottom: 30px;
+            text-indent: 40px;
+        }
+
+        .highlight {
+            color: #d4af77;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(212, 175, 119, 0.3);
+        }
+
+        .letter-signature {
+            text-align: right;
+            font-family: 'Great Vibes', cursive;
+            font-size: 3em;
+            margin-top: 50px;
+            color: #d4af77;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-hearts {
+            text-align: center;
+            font-size: 3em;
+            margin-top: 40px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+        }
+
+        /* OSITOS INTERACTIVOS */
+        .interactive-bears {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            font-size: 80px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-bears:hover {
+            transform: translateX(-50%) scale(1.2);
+        }
+
+        .bear-kissing {
+            animation: kissAnimation 2s infinite;
+        }
+
+        @keyframes kissAnimation {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-10px); }
+        }
+
+        .bear-right {
+            display: inline-block;
+            animation: kissAnimation2 2s infinite;
+        }
+
+        @keyframes kissAnimation2 {
+            0%, 100% { transform: translateX(0) scaleX(-1); }
+            50% { transform: translateX(10px) scaleX(-1); }
+        }
+
+        .kiss-effect {
+            position: fixed;
+            font-size: 40px;
+            pointer-events: none;
+            animation: kissFloat 2s ease-out forwards;
+        }
+
+        @keyframes kissFloat {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-150px) scale(2);
+            }
+        }
+
+        /* BOTÓN GRACIOSO */
+        .funny-counter {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 1.5em;
+            color: #d4af77;
+        }
+
+        .click-me {
+            display: inline-block;
+            margin: 20px;
+            padding: 15px 40px;
+            background: rgba(212, 175, 119, 0.2);
+            border: 2px solid #d4af77;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2em;
+        }
+
+        .click-me:hover {
+            background: rgba(212, 175, 119, 0.4);
+            transform: scale(1.1);
+        }
+
+        .love-meter {
+            width: 300px;
+            height: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            margin: 20px auto;
+            overflow: hidden;
+            border: 2px solid #d4af77;
+        }
+
+        .love-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8b7355, #d4af77);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 15px;
+        }
+
+        /* NAVEGACIÓN MEJORADA */
+        .nav-dots {
+            position: fixed;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 3px solid #d4af77;
+            margin: 25px 0;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            background: transparent;
+            position: relative;
+        }
+
+        .nav-dot::before {
+            content: '💕';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: 0.3s;
+            font-size: 20px;
+        }
+
+        .nav-dot.active {
+            background: #d4af77;
+            transform: scale(1.5);
+            box-shadow: 0 0 20px rgba(212, 175, 119, 0.6);
+        }
+
+        .nav-dot:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* EXPLOSIÓN DE AMOR */
+        .love-explosion {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3.5em; }
+            .photo-grid { grid-template-columns: 1fr; }
+            .letter-container { padding: 40px 30px; }
+            .cute-animal { font-size: 80px; }
+        }
+    </style>
+</head>
+<body>
+<div class="nav-dots">
+    <div class="nav-dot active" onclick="goToSection(0)" title="Inicio"></div>
+    <div class="nav-dot" onclick="goToSection(1)" title="Nuestros Momentos"></div>
+    <div class="nav-dot" onclick="goToSection(2)" title="Mi Carta Para Ti"></div>
+</div>
+
+<section id="vista1" class="section active">
+    <div class="hearts-bg" id="heartsContainer"></div>
+    <div class="hero-content">
+        <div class="cute-animal">🐻‍❄️💕🐱</div>
+        <h1 class="hero-title">Ana, Mi Amor</h1>
+        <p class="hero-subtitle">FELIZ CUMPLEAÑOS !!!</p>
+        <p class="love-message">
+            <span class="sparkle">✨</span> Mi shiquita patas de vinagre <span class="sparkle">✨</span>
+        </p>
+        <button class="start-button" onclick="goToSection(1)">VER MI REGALO 💝</button>
+    </div>
+</section>
+
+<section id="vista2" class="section hidden">
+    <div class="gallery-container">
+        <div class="gallery-header">
+            <h2 class="gallery-title">Eres una Muñequita Hermosa</h2>
+            <p class="gallery-subtitle">Cosita Preciosa 💖</p>
+        </div>
+
+        <div class="photo-grid">
+            <div class="photo-card">
+                <div class="photo-wrapper">
+                    <img src="ana.jpeg" alt="Mi amor Ana">
+                </div>
+                <p class="photo-label">Tu sonrisa ilumina mi vida entera ✨</p>
+            </div>
+            <div class="photo-card">
+                <div class="photo-wrapper">
+                    <img src="ana2.jpeg" alt="Mi princesa Ana">
+                </div>
+                <p class="photo-label">Eres la persona más hermosa del mundo 🌹</p>
+            </div>
+            <div class="photo-card">
+                <div class="photo-wrapper">
+                    <img src="ana3.jpeg" alt="Mi reina Ana">
+                </div>
+                <p class="photo-label">Contigo todo es perfecto 💕</p>
+            </div>
+        </div>
+
+        <div class="cute-animals">
+            <span>🐰</span>
+            <span>💗</span>
+            <span>🐼</span>
+        </div>
+
+        <p class="love-quote">
+            "En un mundo lleno de personas, mis ojos siempre te buscarán a ti"
+        </p>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <button class="start-button" onclick="goToSection(2)">LEER MI CARTA 💌</button>
+        </div>
+    </div>
+</section>
+
+<section id="vista3" class="section hidden">
+    <div class="letter-wrapper">
+        <div class="love-birds">🕊️💕🕊️</div>
+
+        <div class="letter-container">
+            <div class="letter-header">
+                <h2 class="letter-to">Para Ti, Mi Amor</h2>
+                <p class="letter-subtitle">La chica más especial del mundo 💓</p>
+            </div>
+
+            <div class="letter-content">
+                <p>Hoy quiero recordarte lo afortunado que me siento de tenerte en mi vida. Aunque la distancia nos separe, cada día me demuestras con tus palabras y tu forma de ser que eres lo mejor que me pudo pasar.</p>
+
+                <p>Me encanta cómo logras hacerme sonreír incluso en mis días pesados, cómo me entiendes y cómo siempre sabes darme calma. Eres increíblemente única y por eso te admiro tanto.</p>
+
+                <p>En este día especial quiero prometerte que siempre voy a estar para ti, apoyándote, escuchándote y compartiendo contigo todo lo que venga. Porque lo que siento por ti es real y cada día crece más, sin importar la distancia.</p>
+
+                <p>Gracias por ser parte de mi vida, por darme tu tiempo, tu cariño y tu confianza. Espero que este cumpleaños lo disfrutes muchísimo y que muy pronto podamos celebrar juntos de verdad.</p>
+
+                <p><span class="highlight">Te quiero más de lo que imaginé que podía querer a alguien.</span> Feliz cumpleaños, mi niña hermosa Te amo mucho aunque no te bañes  💕</p>
+            </div>
+
+            <div class="letter-signature">
+                Con todo mi cariño,<br>Tu marido UwU 💖
+            </div>
+
+            <div class="final-hearts">
+                💕 ✨ 💖 ✨ 💕 ✨ 💝 ✨ 💕
+            </div>
+        </div>
+    </div>
+    ```
+
+</section>
+
+<script>
+    let currentSection = 0;
+    const sections = document.querySelectorAll('.section');
+    const dots = document.querySelectorAll('.nav-dot');
+
+    function goToSection(index) {
+        sections[currentSection].classList.remove('active');
+        sections[currentSection].classList.add('hidden');
+        dots[currentSection].classList.remove('active');
+
+        currentSection = index;
+
+        sections[currentSection].classList.remove('hidden');
+        setTimeout(() => {
+            sections[currentSection].classList.add('active');
+        }, 50);
+        dots[currentSection].classList.add('active');
+
+        createLoveExplosion();
+    }
+
+    function createFloatingHearts() {
+        const container = document.getElementById('heartsContainer');
+        const hearts = ['💕', '💖', '💗', '💝', '💓', '💞', '❤️', '🩷'];
+
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+            container.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 6000);
+        }, 300);
+    }
+
+    function createLoveExplosion() {
+        const animals = ['🐻', '🐱', '🐰', '🐼', '🦊', '🐨', '🦄', '🐶'];
+        const hearts = ['💕', '💖', '💗', '💝'];
+        const all = [...animals, ...hearts];
+
+        for (let i = 0; i < 20; i++) {
+            setTimeout(() => {
+                const elem = document.createElement('div');
+                elem.className = 'love-explosion';
+                elem.innerHTML = all[Math.floor(Math.random() * all.length)];
+                elem.style.left = Math.random() * 100 + 'vw';
+                elem.style.top = Math.random() * 100 + 'vh';
+                elem.style.fontSize = (Math.random() * 40 + 30) + 'px';
+                elem.style.position = 'fixed';
+                elem.style.animation = 'floatHeart 2s ease-out forwards';
+                document.body.appendChild(elem);
+
+                setTimeout(() => elem.remove(), 2000);
+            }, i * 50);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        createFloatingHearts();
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                if (currentSection < sections.length - 1) {
+                    goToSection(currentSection + 1);
+                }
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                if (currentSection > 0) {
+                    goToSection(currentSection - 1);
+                }
+            }
+        });
+
+        document.querySelectorAll('.start-button').forEach(btn => {
+            btn.addEventListener('click', createLoveExplosion);
+        });
+    });
+
+    let touchStartY = 0;
+    document.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+        const touchEndY = e.changedTouches[0].clientY;
+        const diff = touchStartY - touchEndY;
+
+        if (Math.abs(diff) > 50) {
+            if (diff > 0 && currentSection < sections.length - 1) {
+                goToSection(currentSection + 1);
+            } else if (diff < 0 && currentSection > 0) {
+                goToSection(currentSection - 1);
+            }
+        }
+    });
+</script>
+</body>
+</html>
