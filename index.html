@@ -79,7 +79,7 @@
         .love-meter { width: 300px; height: 30px; background: rgba(255,255,255,0.1); border-radius: 15px; margin: 20px auto; overflow: hidden; border: 2px solid #d4af77; }
         .love-fill { height: 100%; background: linear-gradient(90deg, #8b7355, #d4af77); width: 0%; transition: width 0.5s ease; border-radius: 15px; }
         .nav-dots { position: fixed; right: 40px; top: 50%; transform: translateY(-50%); z-index: 1000; }
-        .nav-dot { width: 18px; height: 18px; border-radius: 50%; border: 3px solid #d4af77; margin: 25px 0; cursor: pointer; transition: all 0.4s ease; background: transparent; }
+        .nav-dot { width: 18px; height: 18px; border-radius: 50%; border: 3px solid #d4af77; margin: 25px 0; pointer-events: none; transition: all 0.4s ease; background: transparent; }
         .nav-dot.active { background: #d4af77; transform: scale(1.5); box-shadow: 0 0 20px rgba(212, 175, 119, 0.6); }
         .love-explosion { position: fixed; pointer-events: none; z-index: 9999; }
         @media (max-width: 768px) {
@@ -99,9 +99,9 @@
 </head>
 <body>
 <div class="nav-dots">
-    <div class="nav-dot active" onclick="goToSection(0)"></div>
-    <div class="nav-dot" onclick="goToSection(1)"></div>
-    <div class="nav-dot" onclick="goToSection(2)"></div>
+    <div class="nav-dot active"></div>
+    <div class="nav-dot"></div>
+    <div class="nav-dot"></div>
 </div>
 
 <section id="vista1" class="section active">
@@ -289,16 +289,12 @@
         });
     });
 
-    let touchStartY = 0;
-    document.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; });
-    document.addEventListener('touchend', (e) => {
-        const touchEndY = e.changedTouches[0].clientY;
-        const diff = touchStartY - touchEndY;
-        if (Math.abs(diff) > 50) {
-            if (diff > 0 && currentSection < sections.length - 1) goToSection(currentSection + 1);
-            else if (diff < 0 && currentSection > 0) goToSection(currentSection - 1);
+    document.addEventListener('touchmove', function(e) {
+        if (e.cancelable) {
+            e.preventDefault();
         }
-    });
+    }, { passive: false });
+
 </script>
 </body>
 </html>
